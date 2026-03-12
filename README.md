@@ -42,4 +42,8 @@ The implementation requires **GNU Octave 10.3.0** and the following packages:
 
 ## Quick Start
 
-Run the implementation starting from the main script
+Run the implementation starting from the main script `MAIN.m`.
+
+Start GNU Octave in the project directory and execute:
+
+    MAIN
