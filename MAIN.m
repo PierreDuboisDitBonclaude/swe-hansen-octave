@@ -5,7 +5,7 @@
 # ISBN (13 digit) 978-0-86341-110-6 / ISBN (10 digit) 0 86341 110 X                                          #
 #                                                                                                            #
 # The software was developed and tested with GNU Octave 10.3.0                                               #
-# Compatibility with MATLAB has not been verified.                                                           #                                                                                  #
+# Compatibility with MATLAB has not been verified.                                                           #                                                                                  
 # This implementation is currently in an early development stage (alpha version)                             #
 # Currently, only outgoing waves (C=3) are supported                                                         #
 # Development artifacts may still be present / Structures and function signatures might change in the future #
@@ -64,7 +64,7 @@ Q=solve_eqs(Int_smnc,C,R,phys,gr);
 # Watch the mode power map in N-M-space
 h=mode_viewer(Q);
 
-# Modify calculated field for reconstruction:
+# Modify the calculated mode coefficients for reconstruction:
 # Numerical noise will have an impact on reconstruction, therefore a threshold should be chosen!
 # Power normalization might also be done in the mode space as in this example:
 Q2=Q;
@@ -99,5 +99,6 @@ field_viewer(gbn,gb_recP);
 # -If no pattern is visible in the field_viewer the selected parameters probably led to numerical issues.
 #  This often happens when N is high and k*R is low (near-field) in analyses as well as in reconstruction.
 # -If no lower threshold is applied to Q this may lead to artifacts depending on the other settings
+
 
 
