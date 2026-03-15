@@ -74,9 +74,9 @@ Q2=power_norm(Q2,Pn);
 
 # TICRA Qsmn IMPORT for the Ticra file format *.sph (only q-coefficients supported at present)
 # IMPORTANT: This Import-Tool is based on the Ticra Manual and a public available *.sph file with its origins in FEKO (Ticra Export) (see README)
-# If *.sph file-import is not working properly with a TICRA generated sph-file, sharing such files would help to improve the parser!
-# TICRA may export several frequency files. These can be found in the command window output of read_sph(). read_sph returns a struct with needed information
-# Relation between TICRA and Hansen coefficients Qsmn_ticra=1/sqrt(8*pi)*conj(Qsmn_hansen)
+# If *.sph file import is not working properly with a TICRA generated *.sph file, sharing such files would help to improve the parser!
+# TICRA may export several frequency files. These can be found in the command window output of read_sph(). read_sph returns a struct with needed information.
+# Relation between TICRA and Hansen coefficients: Qsmn_ticra=1/sqrt(8*pi)*conj(Qsmn_hansen)
 # Q in general has the dims [s=1:2] x [m=-N:1:N] x [N]
 
 TI=read_sph('test3.sph'); # UNCOMMENT below for exploring a sph file in mode_viewer and field_viewer
