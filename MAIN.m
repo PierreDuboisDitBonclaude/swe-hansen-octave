@@ -10,7 +10,7 @@
 # Currently, only outgoing waves (C=3) are supported                                                         #
 # Development artifacts may still be present / Structures and function signatures might change in the future #
 # No numerical stability or reliability checks have been implemented yet                                     #
-# For import of field data or Qsmn see below                      #
+# For import of field data or Qsmn or TICRA files see below                                                  #
 # Copyright (c) 2026 Pierre Dubois-dit-Bonclaude / Licensed under the MIT License                            #
 ##############################################################################################################
 
