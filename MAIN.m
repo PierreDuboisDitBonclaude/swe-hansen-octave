@@ -68,11 +68,11 @@ h=mode_viewer(Q);
 # Numerical noise will have an impact on reconstruction, therefore a threshold should be chosen!
 # Power normalization might also be done in the mode space as in this example:
 Q2=Q;
-Q2(abs(Q2)<1e-8)=0; # Set threshold
+Q2(abs(Q2)<1e-10)=0; # Set threshold
 Q2=power_norm(Q2,Pn);
 
 
-# TICRA Qsmn IMPORT for the Ticra file format *.sph (only q-coefficients supported at present)
+# TICRA Qsmn IMPORT for the Ticra file format *.sph (only Q-coefficients supported at present)
 # IMPORTANT: This Import-Tool is based on the Ticra Manual and a public available *.sph file with its origins in FEKO (Ticra Export) (see README)
 # If *.sph file import is not working properly with a TICRA generated *.sph file, sharing such files would help to improve the parser!
 # TICRA may export several frequency files. These can be found in the command window output of read_sph(). read_sph returns a struct with needed information.
