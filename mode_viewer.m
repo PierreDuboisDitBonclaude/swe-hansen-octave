@@ -201,9 +201,9 @@ function [h bg] = mode_viewer(Q)
 
   P = real(0.5 * Q .* conj(Q));
   P = P(isfinite(P));
-  if isempty(P), pmax = 1; else, pmax = max(P(:)); end
+  if isempty(P), pmax = 1; else, pmax = max(P(:));pmin=min(P(:)) end
   set(h.e_q_hi,'String', num2str(pmax,17));
-
+  set(h.e_q_lo,'String', num2str(pmin,17));
 
   set(h.e_q_lo,'Callback',@(src,evt) update_plots_cb2(h, Q));
   set(h.e_q_hi,'Callback',@(src,evt) update_plots_cb2(h, Q));

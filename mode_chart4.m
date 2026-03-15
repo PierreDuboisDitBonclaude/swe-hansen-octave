@@ -14,8 +14,12 @@ function [Zmin, Zmax]=mode_chart4(Q,s,c,th_low,th_high,a,ax,chartTitle)
 cmap = [1 1 1; jet(256); 0.6 0.6 0.6; 0.15 0.15 0.15];
 N = rows(cmap);
 
-maxth=max(P_Q(P_Q<=th_high));
-minth=min(P_Q(P_Q>=th_low));
+maxth=max(P_Q(s,P_Q(s,:)<=th_high));
+minth=min(P_Q(s,P_Q(s,:)>=th_low));
+if maxth<=minth
+  maxth=minth+eps;
+end
+
 
 for i=linspace(0.8,1.2,1000)
   zmax=maxth+i*2*(maxth-minth)/256;
@@ -71,9 +75,9 @@ maskhigh=T(end-1,2)+(T(end-1,3)-T(end-1,2))/2;
 
   title(cb,"P[W]","FontWeight","bold","FontSize",10);
 
-  ylim(cb,[max(th_low,0) min( th_high,max(B(B<=th_high)(:)) )]);
+  ylim(cb,[max(th_low,0) min( th_high,max(B(B<=th_high)) )]);
 
-  ticks = linspace(max(th_low,0),min( th_high,max(B(B<=th_high)(:)) ),6);
+  ticks = linspace(max(th_low,0),min( th_high,max(B(B<=th_high)) ),6);
   set(cb,'ytick',ticks);
 
   labels = cell(size(ticks));

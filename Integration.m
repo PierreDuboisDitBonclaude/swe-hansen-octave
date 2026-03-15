@@ -1,5 +1,5 @@
 
-function Int_smnc = Integration(N, phys, grid, field,C,R,name,cores)
+function Int_smnc = Integration(phys, grid, field,C,R,name,cores)
   nproc=cores;
   #Integration over phi via IFFT
   C1=fftshift(2*pi*ifft(field.E_r,[],1),1);
@@ -64,7 +64,7 @@ function Int_smnc = Integration(N, phys, grid, field,C,R,name,cores)
 
           for to = 1:blocksize:ts
               t1  = min(to + blocksize - 1, ts);
-              idx2 = to:t1;                  % Theta-Block-Indizes
+              idx2 = to:t1;
               for kk=idx2
                   [P_vec, dP_dmu_vec] = gsl_sf_legendre_deriv_array(2, MN0, mu(kk), 1);
                   P_mat(lin)   = P_vec(l);
@@ -73,7 +73,7 @@ function Int_smnc = Integration(N, phys, grid, field,C,R,name,cores)
                   dP_dmu(:,:,kk-idx2(1)+1) = dP_dmu_mat(idx,2:end);
               endfor
 
-              P2    = sum( P(:,:,1:length(idx2)).*reshape(Cr(:,idx2),M,1,length(idx2)) ,3);  
+              P2    = sum( P(:,:,1:length(idx2)).*reshape(Cr(:,idx2),M,1,length(idx2)) ,3);
               dP2   = sum( dP_dmu(:,:,1:length(idx2)) .* -reshape(s(idx2),1,1,length(idx2)).* reshape(Cp(:,idx2),M,1,length(idx2)) ,3) ;
               P3    = sum( sgnM.* ( P(:,:,1:length(idx2))./reshape(s(idx2),1,1,length(idx2)) ).*reshape(Ct(:,idx2),M,1,length(idx2)) ,3) ;
               dP2b  = sum( dP_dmu(:,:,1:length(idx2)) .* -reshape(s(idx2),1,1,length(idx2)).*reshape(Ct(:,idx2),M,1,length(idx2)) ,3);
@@ -195,5 +195,4 @@ int_faktor2=(eta_0_admit^0.5)/k.*int_faktor;
 Int_smnc=flip(Int_smnc_u,2).*reshape(int_faktor2,[1,M,1,1]);
 
 end
-
 

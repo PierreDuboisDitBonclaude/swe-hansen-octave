@@ -24,7 +24,7 @@ Compatibility with **MATLAB has not been verified**.
 
 Currently implemented features include
 
-- Preliminary TICRA file import (*.sph) for Q-coefficients
+- Preliminary Ticra file import (*.sph) for Q-coefficients
 - outgoing spherical waves (C = 3)
 - Clenshaw–Curtis quadrature
 - Gauss–Legendre quadrature
